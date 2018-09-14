@@ -18,7 +18,6 @@ document.querySelector('#rolar').addEventListener('click', function(ev) {
             arrValores.push(Math.ceil(Math.random() * inputDados[i].dataset.lados));
     
     let resultado = 0;
-    let divEl = document.querySelector('#resultado');
     let strSoma = '';
 
     if (arrValores.length > 0) {
@@ -29,5 +28,6 @@ document.querySelector('#rolar').addEventListener('click', function(ev) {
         strSoma = strSoma.slice(0, strSoma.length - 2);
         document.querySelector('#resultado').innerHTML = strSoma + '= ' + resultado;
     }
+
     document.querySelector('#recipienteResultados').classList.remove('oculto');
 });
