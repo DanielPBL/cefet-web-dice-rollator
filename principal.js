@@ -18,15 +18,13 @@ document.querySelector('#rolar').addEventListener('click', function() {
             arrValores.push(Math.ceil(Math.random() * inputDados[i].dataset.lados));
     
     let resultado = 0;
-    let strSoma = '';
 
     if (arrValores.length > 0) {
         for (let valor of arrValores) {
             resultado += valor;
-            strSoma += valor + ' + ';
         }
-        strSoma = strSoma.slice(0, strSoma.length - 2);
-        document.querySelector('#resultado').innerHTML = strSoma + '= ' + resultado;
+
+        document.querySelector('#resultado').innerHTML = arrValores.join(' + ') + '= ' + resultado;
     }
 
     document.querySelector('#recipienteResultados').classList.remove('oculto');
