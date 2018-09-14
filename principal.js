@@ -23,7 +23,9 @@ document.querySelector('#rolar').addEventListener('click', function() {
 
     if (resultado) {
     	document.querySelector('#resultado').innerHTML = arrValores.join(' + ') + ' = ' + resultado;
+    } else {
+    	document.querySelector('#resultado').innerHTML = '';
     }
-    
+
     document.querySelector('#recipienteResultados').classList.remove('oculto');
 });
