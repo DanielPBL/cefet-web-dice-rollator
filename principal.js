@@ -8,7 +8,26 @@
 //	 - você deve definir seu conteúdo (.innerHTML) com a string de resultados
 // #recipienteResultados: "Container" do elemento dos resultados:
 //	 - você deve torná-lo visível removendo a classe "oculto" dele
-// .quantidade: todos os input[type=number] com a quantidade de dados a serem rolados
-// #quantidadeD{4,6,8,10,12,20}: um ID para cada input[type=number] com a quantidade
 
+document.querySelector('#rolar').addEventListener('click', function(ev) {
+    let inputDados = document.querySelectorAll('.dado input');
+    let arrValores = [];
 
+    for (let i = 0; i < inputDados.length; i++)
+        for (let j = 0; j < inputDados[i].value; j++)
+            arrValores.push(Math.ceil(Math.random() * inputDados[i].dataset.lados));
+    
+    let resultado = 0;
+    let divEl = document.querySelector('#resultado');
+    let strSoma = '';
+
+    if (arrValores.length > 0) {
+        for (valor of arrValores) {
+            resultado += valor;
+            strSoma += valor + ' + ';
+        }
+        strSoma = strSoma.slice(0, strSoma.length - 2);
+        document.querySelector('#resultado').innerHTML = strSoma + '= ' + resultado;
+    }
+    document.querySelector('#recipienteResultados').classList.remove('oculto');
+});
