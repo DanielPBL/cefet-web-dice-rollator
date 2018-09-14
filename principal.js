@@ -13,12 +13,17 @@ document.querySelector('#rolar').addEventListener('click', function() {
     let inputDados = document.querySelectorAll('.dado input');
     let arrValores = [];
 
-    for (let i = 0; i < inputDados.length; i++)
-        for (let j = 0; j < inputDados[i].value; j++)
-            arrValores.push(Math.ceil(Math.random() * inputDados[i].dataset.lados));
+    for (let inputDado of inputDados) {
+        for (let j = 0; j < inputDado.value; j++) {
+            arrValores.push(Math.ceil(Math.random() * inputDado.dataset.lados));
+        }
+    }
     
     let resultado = arrValores.reduce((a, b) => a + b, 0);
 
-    document.querySelector('#resultado').innerHTML = arrValores.join(' + ') + ' = ' + resultado;
+    if (resultado) {
+    	document.querySelector('#resultado').innerHTML = arrValores.join(' + ') + ' = ' + resultado;
+    }
+    
     document.querySelector('#recipienteResultados').classList.remove('oculto');
 });
