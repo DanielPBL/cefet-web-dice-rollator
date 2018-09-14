@@ -9,7 +9,7 @@
 // #recipienteResultados: "Container" do elemento dos resultados:
 //	 - você deve torná-lo visível removendo a classe "oculto" dele
 
-document.querySelector('#rolar').addEventListener('click', function(ev) {
+document.querySelector('#rolar').addEventListener('click', function() {
     let inputDados = document.querySelectorAll('.dado input');
     let arrValores = [];
 
@@ -21,7 +21,7 @@ document.querySelector('#rolar').addEventListener('click', function(ev) {
     let strSoma = '';
 
     if (arrValores.length > 0) {
-        for (valor of arrValores) {
+        for (let valor of arrValores) {
             resultado += valor;
             strSoma += valor + ' + ';
         }
