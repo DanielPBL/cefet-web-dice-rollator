@@ -17,15 +17,8 @@ document.querySelector('#rolar').addEventListener('click', function() {
         for (let j = 0; j < inputDados[i].value; j++)
             arrValores.push(Math.ceil(Math.random() * inputDados[i].dataset.lados));
     
-    let resultado = 0;
+    let resultado = arrValores.reduce((a, b) => a + b, 0);
 
-    if (arrValores.length > 0) {
-        for (let valor of arrValores) {
-            resultado += valor;
-        }
-
-        document.querySelector('#resultado').innerHTML = arrValores.join(' + ') + '= ' + resultado;
-    }
-
+    document.querySelector('#resultado').innerHTML = arrValores.join(' + ') + ' = ' + resultado;
     document.querySelector('#recipienteResultados').classList.remove('oculto');
 });
